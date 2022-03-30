@@ -1,0 +1,112 @@
+@import 'reset-css';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+     font-family: "Poppins", sans-serif;
+}
+
+
+
+
+.form {
+    flex: 1;
+    padding: 30px 50px;
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+    &__content {
+        width: 60%;
+        border-radius: 8px;
+        box-shadow: 0 0 3px rgba(0,0,0,.5);
+        display: flex;
+        overflow: hidden;
+    }
+    &__banner {
+        flex: 0 0 320px;
+        background: url('../public/images/snow4.jpg') no-repeat center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    &__banner-inner {
+        display: flex;
+        flex-direction: column;
+
+    }
+    &__banner-link {
+        background-color: #fff;
+        color: #000;
+        width: 90px;
+        height: 35px;
+        line-height: 35px;
+        font-size: .9rem;
+        text-align: center;
+        margin: 7px 0;
+        text-decoration: none;
+        text-transform: uppercase;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+    }
+    &__title {
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        
+    }
+    &__group-item {
+        box-shadow: 0 0 3px rgba(0,0,0,.5);
+        border-radius: 50px;
+        margin-bottom: 15px;
+        padding: 12px 15px;
+        position: relative;
+    }
+    &__group-input {
+        display: block;
+        width: 100%;
+        padding-right: 80px;
+        border: none;
+        background-color: transparent;
+        font-size: 1rem;
+        &:focus {
+            border: none;
+            outline: none;
+            background-color: transparent;
+        }
+        &--btn {
+            text-align: center;
+            display: block;
+            width: 100%;
+            background-color: rgb(233, 16, 16);
+            padding: 15px 0;
+            border-radius: 50px;
+            border: none;
+            color: antiquewhite;
+            cursor: pointer;
+            &:hover {
+                background-color: rgb(240, 92, 104);
+            }
+        }
+    }
+    &__group-icon {
+        position: absolute; 
+        right: 12px;
+        top: 13px;
+        cursor: pointer;
+
+    }
+}
+
