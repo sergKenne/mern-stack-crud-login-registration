@@ -14,8 +14,198 @@ body {
      font-family: "Poppins", sans-serif;
 }
 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+    
+}
 
 
+//HOME
+.home {
+    min-height: 100vh;
+    //height: 100%;
+    background-color: #fb8c00 ;
+}
+
+//Header 
+.header {
+    height: 80px;
+    background-color: #000;
+    color: #fff;
+    box-shadow: 0 5px 5px rgba(0,0,0,.5);
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+    }
+    &__title {
+        font-size: 1.6rem;
+    }
+    &__right {
+        display: flex;
+        align-items: center;
+    }
+    &__right-user {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 30px;
+        i {
+            font-size: 2rem;
+            padding-bottom: 5px;
+        }
+    }
+    &__right-logout {
+        cursor: pointer;
+        i {
+            margin-left: 5px;
+        }
+    }
+}
+
+//MAIN
+.main {
+
+    &__form {
+        background-color: #546e7a;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    &__content {
+        display: flex;
+        gap: 30px;
+        padding-top: 30px;
+    }
+    &__left {
+        flex: .5;
+
+    }
+    &__right {
+        flex: .5;
+        height: calc(100vh - 110px);
+        //border: 1px solid red;
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+            height: 12px;
+            width: 12px;
+        }
+        &::-webkit-scrollbar-track {
+            background: orange;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: rgb(15, 120, 146);
+            border-radius: 5px;
+            border: 3px solid orange;
+        }
+    }
+    &__form-label {
+        color: #fff;
+        color: #2ecebe;
+        font-weight: 500;
+    }
+    &__form-input {
+        display: block;
+        width: 100%;
+        border: none;
+        margin-top: 2px;
+        margin-bottom: 17px;
+        padding: 5px 0;
+        background-color: #546e7a;
+        border-bottom: 2px solid #00897b ;
+        font-size: 1.1rem;
+        outline: none;
+        color: #fff;
+        &::-webkit-input-placeholder {
+            color: #fff;
+        }
+    }
+    &__form-divider {
+        height: 1px;
+        background-color: #26a69a;
+        margin: 8px 0;
+    }
+    &__task-name {
+        color: #fff;
+        font-size: 1.3rem;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        color: #2ecebe;
+        span {
+            margin-left: 8px;
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+    }
+    &__task-description {
+        color: #fff;
+        color: #2ecebe;
+        font-size: 1.2rem;
+        line-height: 1.2;
+        span {
+            margin-left: 8px;
+            font-size: 1rem;
+            color: #ffffff;
+        }
+    }
+    &__btn-group {
+        display: flex;
+        gap: 10px;
+    }
+    &__form-btn {  
+        height: 2.5rem;
+        line-height: 2.5rem; 
+        padding-left: 15px;
+        padding-right: 15px;
+        color: #fff;
+        background-color: #26a69a;
+        text-align: center;
+        letter-spacing: .5px;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0,.14), 0 3px 1px -2px rgba(0, 0, 0, .12), 0 1px 5px 0 rgba(0, 0, 0, .2);
+        border: none;
+        cursor: pointer;
+        &:hover {
+            background-color: #2bbbad;
+            box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .14), 0 1px 7px 0 rgba(0, 0, 0, .12), 0 3px 1px -1px rgba(0, 0, 0, .2);
+        }
+        &.disable {
+            background-color: #DFDFDF ;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            color: #9F9F9F ;
+            cursor:not-allowed;
+            &:hover {
+                background-color: #DFDFDF ;
+                -webkit-box-shadow: none;
+                box-shadow: none;
+                color: #9F9F9F ;
+                cursor:not-allowed;
+            }
+        }
+        &--edit {
+            background-color: #800080;
+            &:hover {
+                background-color: #9c27b0 ;
+            }
+            
+        }
+        &--delete {
+            background-color: #e65100;
+            &:hover {
+                background-color: #ef6c00 ;
+            }
+        }
+        &--green {
+            background-color: #008000;
+            &:hover {
+                background-color: #4caf50;
+            }
+        }
+
+    }
+}
 
 .form {
     flex: 1;
@@ -29,12 +219,14 @@ body {
     }
     &__content {
         width: 60%;
+        min-height: 380px;
         border-radius: 8px;
         box-shadow: 0 0 3px rgba(0,0,0,.5);
         display: flex;
         overflow: hidden;
     }
     &__banner {
+        position: relative;
         flex: 0 0 320px;
         background: url('../public/images/snow4.jpg') no-repeat center/cover;
         display: flex;
@@ -45,6 +237,15 @@ body {
         display: flex;
         flex-direction: column;
 
+    }
+    &__banner-logo {
+        position: absolute;
+        color: #fff;
+        font-size: 1.2rem;
+        top: 10px;
+        left: 10px;
+        text-decoration: none;
+        font-weight: 500;
     }
     &__banner-link {
         background-color: #fff;
@@ -59,6 +260,11 @@ body {
         text-transform: uppercase;
         border-top-left-radius: 50px;
         border-bottom-left-radius: 50px;
+        border: none;
+        &.activ {
+            background-color: rgb(233, 16, 16);
+            color: #fff;
+        }
     }
     &__title {
         text-align: center;
@@ -106,6 +312,18 @@ body {
         right: 12px;
         top: 13px;
         cursor: pointer;
+
+    }
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+
+    img {
+        width: 160px;
 
     }
 }

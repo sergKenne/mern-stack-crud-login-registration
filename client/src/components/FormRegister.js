@@ -1,8 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
 
+
 const FormRegister = () => {
     const [ShowPass, setShowPass] = useState(false);
     const [ShowconfirmPass, setShowConfirmPass] = useState(false);
+    
 
     const passInp = useRef(null);
     const confirmPassInp = useRef(null);
@@ -22,7 +24,7 @@ const FormRegister = () => {
             <form autoComplete="off" action="" className="form">
                 <h2 className="form__title">Create a new account</h2>
                 <div className="form__group-item">
-                    <input className="form__group-input" type="text" placeholder="Username" />
+                    <input className="form__group-input" type="text" autoFocus placeholder="Username" />
                     <i className="fa-solid fa-user form__group-icon"></i>
                 </div>
                 <div className="form__group-item">

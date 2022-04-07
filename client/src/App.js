@@ -5,12 +5,13 @@ import Registration from './pages/Registration';
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
+    const user = false;
     return (
         <div className="grid">
             <Routes>
-                <Route exact path="/" element={<Home />} />
+                <Route exact path="/" element={ user ? <Home /> : <Login/>} />
                 <Route exact path="/login" element={<Login />} />
-                <Route exact path="/registration" element={<Registration />} />
+                <Route exact path="/register" element={<Registration />} />
             </Routes>
         </div>
     );
