@@ -21,6 +21,11 @@ body {
     
 }
 
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+
 
 //HOME
 .home {
@@ -78,15 +83,22 @@ body {
         display: flex;
         gap: 30px;
         padding-top: 30px;
+        @media (max-width: 720px) {
+           flex-direction: column;
+           height: calc(100vh - 90px);
+           gap: 10px;
+        }
     }
     &__left {
         flex: .5;
+        @media (max-width: 720px) {
+           flex: .3;
+        }
 
     }
     &__right {
         flex: .5;
         height: calc(100vh - 110px);
-        //border: 1px solid red;
         overflow-y: scroll;
         &::-webkit-scrollbar {
             height: 12px;
@@ -99,6 +111,10 @@ body {
             background-color: rgb(15, 120, 146);
             border-radius: 5px;
             border: 3px solid orange;
+        }
+        @media (max-width: 720px) {
+           //height: calc(100vh - 320px);
+           flex: .7;
         }
     }
     &__form-label {
@@ -144,6 +160,12 @@ body {
         color: #2ecebe;
         font-size: 1.2rem;
         line-height: 1.2;
+        // display: -webkit-inline-box;
+        // -webkit-box-orient: vertical;
+        // -webkit-line-clamp: 4;
+        overflow: hidden;
+        // border: 1px solid red;
+        // width: 100%;
         span {
             margin-left: 8px;
             font-size: 1rem;
@@ -209,7 +231,11 @@ body {
 
 .form {
     flex: 1;
-    padding: 30px 50px;
+    padding: 70px 50px 30px;
+    position: relative;
+    @media (max-width: 769px) {
+        padding: 70px 20px 30px;
+    }
     &__wrapper {
         display: flex;
         flex-direction: column;
@@ -224,6 +250,14 @@ body {
         box-shadow: 0 0 3px rgba(0,0,0,.5);
         display: flex;
         overflow: hidden;
+        height: 420px;
+        @media (max-width: 1025px) {
+            width: 90%;
+        }
+        @media (max-width: 426px) {
+            flex-direction: column;
+            height: 518px;
+        }
     }
     &__banner {
         position: relative;
@@ -232,10 +266,21 @@ body {
         display: flex;
         align-items: center;
         justify-content: flex-end;
+        @media (max-width: 765px) {
+            flex: 0 0 100px;
+        }
+        @media (max-width: 426px) {
+            justify-content: center;
+        }
+        
     }
     &__banner-inner {
         display: flex;
         flex-direction: column;
+        @media (max-width: 426px) {
+            flex-direction: row;
+            margin-top: 20px;
+        }
 
     }
     &__banner-logo {
@@ -261,10 +306,36 @@ body {
         border-top-left-radius: 50px;
         border-bottom-left-radius: 50px;
         border: none;
+        @media (max-width: 426px) {
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+            margin: 0 10px;
+        }
         &.activ {
             background-color: rgb(233, 16, 16);
             color: #fff;
         }
+    }
+    &__info {
+        position: absolute;
+        top: 10px;
+        right: 50px;
+        left: 50px;
+        @media (max-width: 769px) {
+            right: 20px;
+            left: 20px;
+        }
+    }
+    &__info-msg {
+        position: relative;
+        background-color: rgb(255, 119, 0);
+        color: #ffffff; 
+    }
+    &__info-close {
+        position: absolute;
+        right: 8px;
+        top: 6px;
+        cursor: pointer;
     }
     &__title {
         text-align: center;
@@ -290,7 +361,7 @@ body {
         &:focus {
             border: none;
             outline: none;
-            background-color: transparent;
+            //background-color: transparent;
         }
         &--btn {
             text-align: center;
@@ -303,7 +374,7 @@ body {
             color: antiquewhite;
             cursor: pointer;
             &:hover {
-                background-color: rgb(240, 92, 104);
+                background-color: rgb(145, 15, 26);
             }
         }
     }
@@ -327,4 +398,3 @@ body {
 
     }
 }
-

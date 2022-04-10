@@ -31,7 +31,6 @@ const Task = ({ task }) => {
           </p>
           <div className="main__form-divider"></div>
           <div className="main__btn-group">
-              {/* <button className="main__form-btn">ADD TASK</button> */}
               <button
                   className={`main__form-btn main__form-btn--edit ${isEdit ? 'disable' : ''}`}
                   disabled={isEdit ? true : false}
@@ -44,13 +43,6 @@ const Task = ({ task }) => {
                   onClick={() => removeTask(task._id)}>
                   DELETE
               </button>
-
-              {/* <button className="main__form-btn main__form-btn--green">
-                UPDATE TASK
-            </button>
-            <button className="main__form-btn main__form-btn--green">
-                CANCEL
-            </button> */}
           </div>
       </div>
   );

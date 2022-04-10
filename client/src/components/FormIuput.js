@@ -54,19 +54,6 @@ const FormIuput = () => {
                   className="main__form-btn"
                   onClick={addTask}
               >ADD TASK</button>
-
-              {/* <button className="main__form-btn main__form-btn--edit">
-                    EDIT
-                </button>
-                <button className="main__form-btn main__form-btn--delete">
-                    DELETE
-                </button>
-                <button className="main__form-btn main__form-btn--green">
-                    UPDATE TASK
-                </button>
-                <button className="main__form-btn main__form-btn--green">
-                    CANCEL
-                </button> */}
           </div>
       </form>
   );

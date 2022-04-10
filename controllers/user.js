@@ -8,7 +8,7 @@ const userRegister = async (req, res) => {
     const errors = validationResult(req);
     console.log("error:", errors.array());
     if (!errors.isEmpty()) {
-        return res.status(422).json(errors.array()[0].msg);
+        return res.status(422).json({msg: errors.array()[0].msg});
     } 
 
     const { email, username, password, confirmPass } = req.body
@@ -21,14 +21,16 @@ const userRegister = async (req, res) => {
             })
         }
 
-        if (password == confirmPass) {
+        if (password === confirmPass) {
             bcrypt.hash( password, 10, function (err, hash) {
                 if (err) {
-                    return res.status(400).json({ msg: err.message })
+                    return res.status(400).json({ msg: "password and confirPass must be a same" })
                 } 
                 User.create({ email, username, password: hash }, (err, doc) => {
                     if (err) {
-                       res.json(err)
+                        res.status(500).json({
+                            msg: err
+                        })
 
                     } 
                     res.status(200).json({
@@ -47,24 +49,22 @@ const userRegister = async (req, res) => {
             msg: error.message
         })
     }
-    
-    
 }
 
 const userLogin = async (req, res) => {
     const errors = validationResult(req);
     console.log('error:', errors.array());
     if (!errors.isEmpty()) {
-        return res.status(422).json(errors.array()[0].msg);
+        return res.status(401).json({msg: errors.array()[0].msg});
     }
     const {email, password} = req.body
     const user = await User.findOne({ email })
     if (!user) {
-        return res.status(404).json({msg: "invalid email or password"})
+        return res.status(500).json({msg: "invalid email or password"})
     }
     bcrypt.compare(password, user.password).then(function (result) {
         if (!result) {
-            returnres.status(401).json({msg: "ivalid email or password"})
+            return res.status(401).json({msg: "ivalid email or password"})
         }
 
         //const token = user.generateToken(); 
@@ -78,7 +78,8 @@ const userLogin = async (req, res) => {
         );
         res.status(200).json({
             user,
-            token
+            token,
+            msg:""
         });
     });
 };

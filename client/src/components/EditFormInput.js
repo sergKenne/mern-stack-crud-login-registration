@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { useDispatch } from 'react-redux'
 import { cancelEditTask, editTask } from '../redux/actions';
-//import { postTask } from '../redux/actions';
 
 const EditFormInput = ({task}) => {
     const [inputs, setInputs] = useState({ name: '', description: '' });
@@ -14,12 +13,6 @@ const EditFormInput = ({task}) => {
         });
     };
 
-    // const addTask = (e) => {
-    //     e.preventDefault();
-    //     console.log(inputs);
-    //     dispatch(postTask(inputs));
-    //     setInputs({ name: '', description: '' });
-    // };
     const updateTask = (e) => {
         e.preventDefault();
         dispatch(editTask(task._id, inputs));   
