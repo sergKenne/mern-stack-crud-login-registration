@@ -2,13 +2,11 @@ import React from 'react';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Registration from './pages/Registration';
-import { Route, Routes, useNavigate, Navigate } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 
 function App() {
-    // const navigate = useNavigate()
     const user = localStorage.getItem("token");
-    console.log(user);
-
+  
     return (
         <div className="grid">
             <Routes>

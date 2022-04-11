@@ -26,7 +26,6 @@ const FormLogin = () => {
             const { data: response } = await axios.post('/api/user/login', values);
             localStorage.setItem('token', response.token);
             localStorage.setItem('user', JSON.stringify(response.user));
-            console.log(response);
             setInfoMsg(response.msg);
             navigate('/');
             //window.location="/"

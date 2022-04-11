@@ -10,8 +10,6 @@ import { getTasks } from '../redux/actions';
 const Home = ({ tasks, fetchTask }) => {
     const { tasks:allTask, loading, task } = tasks;
 
-    console.log('tasks', allTask);
-
     useEffect(() => {
         fetchTask()
     }, []);

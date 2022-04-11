@@ -46,6 +46,14 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
         align-items: center;
         height: 80px;
     }
+    &__logo {
+        font-size: 1.2rem;
+        color: #fff;
+        text-decoration: none;
+        &:hover {
+            color:rgb(255, 119, 0)
+        } 
+    }
     &__title {
         font-size: 1.6rem;
     }
@@ -68,12 +76,15 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
         i {
             margin-left: 5px;
         }
+        &:hover {
+            color:rgb(255, 119, 0)
+        } 
     }
 }
 
 //MAIN
 .main {
-
+    
     &__form {
         background-color: #546e7a;
         padding: 20px;
@@ -325,6 +336,11 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
             right: 20px;
             left: 20px;
         }
+        &--main {
+            position: initial;
+            //margin-top: -20px;
+            margin-bottom: 5px;
+        }
     }
     &__info-msg {
         position: relative;
@@ -397,4 +413,8 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
         width: 160px;
 
     }
+}
+
+input:-internal-autofill-selected {
+    background-color: transparent!important;
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const Header = () => {
 
@@ -14,7 +15,7 @@ const Header = () => {
       <div className="header">
           <div className="container">
               <div className="header__inner">
-                  <span>Logo</span>
+                  <span ><Link className='header__logo' to="/">Logo</Link> </span> 
                   <h1 className="header__title">Task Manager</h1>
                   <div className='header__right'>
                       <div className="header__right-user">

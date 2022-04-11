@@ -6,18 +6,13 @@ const Task = ({ task }) => {
     
     const dispatch = useDispatch()
     const taskEdited = useSelector(state => state.tasks.task)
-    console.log(taskEdited);
     const isEdit = Object.keys(taskEdited).length;
-    console.log(isEdit);
-    
 
     const removeTask = (id) => {
         dispatch(deleteTask(id))
-        console.log(id);
     }
 
     const getSingleTask = (id) => {
-        console.log(id);
         dispatch(singleTask(id)) 
     } 
 

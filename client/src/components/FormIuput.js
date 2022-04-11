@@ -1,8 +1,10 @@
 import React, {useState} from 'react'
 import { useDispatch } from 'react-redux'
 import { postTask } from '../redux/actions';
+import InfoMessage from './InfoMessage';
 const FormIuput = () => {
     const [inputs, setInputs] = useState({ name: "", description: "" });
+    const [infoMsg, setInfoMsg] = useState('');
     const dispatch = useDispatch();
   
     const handleChange = (e) => {
@@ -14,13 +16,23 @@ const FormIuput = () => {
 
     const addTask = (e) => {
         e.preventDefault()
-        console.log(inputs);
-        dispatch(postTask(inputs))
-        setInputs({name:"", description:""})
+        if (inputs.name === "" || inputs.description === "") {
+            setInfoMsg('field name or description can not be empty');
+        } else {
+            dispatch(postTask(inputs));
+            setInputs({ name: "", description: "" });
+            setInfoMsg('Task added successfully');
+
+            setTimeout(() => {
+                setInfoMsg('');
+            }, 3000)
+        }
+        
     }
 
   return (
       <form className="main__form">
+          <InfoMessage infoMsg={infoMsg} setInfoMsg={setInfoMsg} />
           <div className="main__form-group">
               <label className="main__form-label" htmlFor="task">
                   Task
@@ -39,21 +51,18 @@ const FormIuput = () => {
               <label className="main__form-label" htmlFor="task">
                   Description
               </label>
-              <input
+              <textarea
+                  className="materialize-textarea main__form-input"
                   id="tast"
                   type="text"
                   name="description"
                   value={inputs.description}
-                  onChange={handleChange}
-                  className="main__form-input"
-                  placeholder=""
-              />
+                  onChange={handleChange}></textarea>
           </div>
           <div className="main__btn-group">
-              <button
-                  className="main__form-btn"
-                  onClick={addTask}
-              >ADD TASK</button>
+              <button className="main__form-btn" onClick={addTask}>
+                  ADD TASK
+              </button>
           </div>
       </form>
   );

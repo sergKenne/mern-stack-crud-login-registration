@@ -50,7 +50,7 @@ const updateTask = async (req, res) => {
     const { name, description } = req.body;
     if (name === '' || description === '') {
         return res.status(402).json({
-            msg: 'filed name or description can not be empty',
+            msg: 'field name or description can not be empty',
         });
     }
     try {
