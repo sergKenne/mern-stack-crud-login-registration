@@ -75,7 +75,6 @@ const FormRegister = () => {
                         onChange={handleChange}
                         className="form__group-input"
                         type="text"
-                        autoFocus
                         placeholder="Username"
                     />
                     <i className="fa-solid fa-user form__group-icon"></i>

@@ -65,7 +65,6 @@ const FormLogin = () => {
                         autoComplete="off"
                         className="form__group-input"
                         type="text"
-                        autoFocus
                         placeholder="Email"
                         name="email"
                         value={values.email}
