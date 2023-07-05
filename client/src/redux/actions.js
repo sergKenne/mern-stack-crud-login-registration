@@ -15,6 +15,8 @@ const {
     TASK_EDIT_CANCEL,
 } = require('./types');
 
+const BASE_URL = 'https://mern-stack-crud-login-registration.onrender.com/';
+
 const token = localStorage.getItem("token"); 
 
 export const getTasks = () => async (dispatch) => {
@@ -24,7 +26,8 @@ export const getTasks = () => async (dispatch) => {
             'Content-Type': 'application/json',
             'x-auth-token': token,
         };
-        const { data } = await axios.get("/api/task", {headers})
+        //const { data } = await axios.get("/api/task", {headers})
+        const { data } = await axios.get(`${BASE_URL}/api/task`, { headers });
         dispatch({
             type: TASKS_LIST_SUCCESS,
             tasks: data
@@ -44,7 +47,8 @@ export const postTask = (task) => async (dispatch) => {
             'Content-Type': 'application/json',
             'x-auth-token': token,
         };
-        const { data } = await axios.post("/api/task", task, { headers: headers })
+        //const { data } = await axios.post(`/api/task`, task, { headers: headers })
+        const { data } = await axios.post(`${BASE_URL}/api/task`, task, { headers: headers });
         dispatch({
             type: TASK_CREATE_SUCCESS,
             task: data.task,
@@ -74,7 +78,8 @@ export const editTask = (id, task) => async (dispatch) => {
             'Content-Type': 'application/json',
             'x-auth-token': token,
         };
-        await axios.put(`/api/task/${id}`, task, {headers})
+        //await axios.put(`/api/task/${id}`, task, { headers });
+        await axios.put(`${BASE_URL}/api/task/${id}`, task, { headers });
         dispatch({type: TASK_EDIT_SUCCESS, id,task })
         dispatch({type: TASK_EDIT_CANCEL})
     } catch (error) {
@@ -98,7 +103,8 @@ export const deleteTask = (id) => async (dispatch) => {
             'Content-Type': 'application/json',
             'x-auth-token': token,
         };
-        const { data } = await axios.delete(`/api/task/${id}`, {headers}) 
+        //const { data } = await axios.delete(`/api/task/${id}`, { headers }); 
+        const { data } = await axios.delete(`${BASE_URL}/api/task/${id}`, { headers }); 
         dispatch({
             type: TASK_DELETE_SUCCESS,
             id,
